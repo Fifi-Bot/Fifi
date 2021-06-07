@@ -1,0 +1,8 @@
+discord.py
+DiscordUtils
+asyncpg
+flask
+discord-flags
+jishaku
+praw
+humanize
