@@ -412,6 +412,7 @@ extensions = [
     "cogs.webhook",
     "cogs.wc",
     "cogs.battlefield",
+    "cogs.owner",
     "jishaku"
 ]
 
