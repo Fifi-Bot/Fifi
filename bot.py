@@ -163,7 +163,7 @@ async def domain(ctx):
   if ctx.invoked_subcommand is None:
     return await ctx.reply(f"{client.baseURL}/")
 
-# ---------------------------- MAIN SUBCOMMANDS ----------------------------
+# ---------------------------- MAIN SUBCOMMANDS (FIFI) ----------------------------
 
 @domain.command(name = "status", aliases = ['stats'])
 async def __status(ctx):
@@ -203,10 +203,77 @@ async def _guild(ctx):
 @rico.command(name = "invite", aliases=['invites'])
 async def _invite(ctx):
   await ctx.reply(f"https://rico.{client.baseURLwithoutHttps}/invite/")
+  
+# ---------------------------- KOKONUTZ ----------------------------
 
-#@domain.command(aliases = ['koko', 'nutz'])
-#async def kokonutz(ctx):
-  #if ctx.invoked_subcommand is None
+@domain.group(invoke_without_command = True)
+async def kokonutz(ctx):
+  if ctx.invoked_subcommand is None:
+    return await ctx.reply(f"https://kokonutz.{client.baseURLwithoutHttps}/")
+
+@kokonutz.command(name = "status", aliases = ['stats'])
+async def _status(ctx):
+  await ctx.reply(f"https://kokonutz.{client.baseURLwithoutHttps}/status/")
+
+@kokonutz.command(name = "commands", aliases=['command'])
+async def __commands(ctx):
+  await ctx.reply(f"https://kokonutz.{client.baseURLwithoutHttps}/commands/")
+
+@kokonutz.command(name = "guild", aliases=['support', 'server'])
+async def _guild(ctx):
+  await ctx.reply(f"https://kokonutz.{client.baseURLwithoutHttps}/support/")
+
+@kokonutz.command(name = "invite", aliases=['invites'])
+async def _invite(ctx):
+  await ctx.reply(f"https://kokonutz.{client.baseURLwithoutHttps}/invite/")
+  
+# ---------------------------- OWO MAN ----------------------------
+
+@domain.group(invoke_without_command = True)
+async def owo(ctx):
+  if ctx.invoked_subcommand is None:
+    return await ctx.reply(f"https://owo.{client.baseURLwithoutHttps}/")
+
+@owo.command(name = "status", aliases = ['stats'])
+async def _status(ctx):
+  await ctx.reply(f"https://owo.{client.baseURLwithoutHttps}/status/")
+
+@owo.command(name = "commands", aliases=['command'])
+async def __commands(ctx):
+  await ctx.reply(f"https://owo.{client.baseURLwithoutHttps}/commands/")
+
+@owo.command(name = "guild", aliases=['support', 'server'])
+async def _guild(ctx):
+  await ctx.reply(f"https://owo.{client.baseURLwithoutHttps}/support/")
+
+@owo.command(name = "invite", aliases=['invites'])
+async def _invite(ctx):
+  await ctx.reply(f"https://owo.{client.baseURLwithoutHttps}/invite/")
+
+# ---------------------------- 6721 ----------------------------
+
+@domain.group(invoke_without_command = True)
+async def 6721(ctx):
+  if ctx.invoked_subcommand is None:
+    return await ctx.reply(f"https://6721.{client.baseURLwithoutHttps}/")
+
+@6721.command(name = "status", aliases = ['stats'])
+async def _status(ctx):
+  await ctx.reply(f"https://6721.{client.baseURLwithoutHttps}/status/")
+
+@6721.command(name = "commands", aliases=['command'])
+async def __commands(ctx):
+  await ctx.reply(f"https://6721.{client.baseURLwithoutHttps}/commands/")
+
+@6721.command(name = "guild", aliases=['support', 'server'])
+async def _guild(ctx):
+  await ctx.reply(f"https://6721.{client.baseURLwithoutHttps}/support/")
+
+@6721.command(name = "invite", aliases=['invites'])
+async def _invite(ctx):
+  await ctx.reply(f"https://6721.{client.baseURLwithoutHttps}/invite/")
+  
+
 
 @client.event
 async def on_member_join(member):
