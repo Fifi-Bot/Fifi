@@ -40,7 +40,7 @@ class Music(commands.Cog):
                     await ctx.send(f'<a:loading:829244740293099530> Searching for `{url}` in YouTube.. Please Wait')
                     await player.queue(url, bettersearch=True)
                     song = await player.play()
-                    await ctx.send(f"<:playbutton:829248766904762408> Now Playing `{song.name}`")
+                    await ctx.send(f"<:green_play_button:851322498250571787> Now Playing `{song.name}`")
                 else:
                     await ctx.send(f'<a:loading:829244740293099530> Searching for `{url}` in YouTube.. Please Wait')
                     song = await player.queue(url, bettersearch=True)
@@ -56,7 +56,7 @@ class Music(commands.Cog):
                     await ctx.send(f'<a:loading:829244740293099530> Searching for `{url}` in YouTube.. Please Wait')
                     await player.queue(url, bettersearch=True)
                     song = await player.play()
-                    await ctx.send(f"<:playbutton:829248766904762408>  Now Playing `{song.name}`")
+                    await ctx.send(f"<:green_play_button:851322498250571787> Now Playing `{song.name}`")
                 else:
                     await ctx.send(f'<a:loading:829244740293099530> Searching for `{url}` in YouTube.. Please Wait')
                     song = await player.queue(url, bettersearch=True)
@@ -87,7 +87,7 @@ class Music(commands.Cog):
         try:
             player = music.get_player(guild_id=ctx.guild.id)
             song = await player.pause()
-            await ctx.reply(f"<:pausebutton:829251301929517116> Paused `{song.name}`")
+            await ctx.reply(f"<:green_pause_button:851338985216147487> Paused `{song.name}`")
         except:
             await ctx.reply('Nothing is currently playing right now.')
 
@@ -96,7 +96,7 @@ class Music(commands.Cog):
         try:
             player = music.get_player(guild_id=ctx.guild.id)
             song = await player.resume()
-            await ctx.reply(f"<:playbutton:829248766904762408> Resumed `{song.name}`")
+            await ctx.reply(f"<:green_play_button:851322498250571787> Resumed `{song.name}`")
         except:
             await ctx.reply('Nothing is currently playing right now.')
 
@@ -104,7 +104,7 @@ class Music(commands.Cog):
     async def stop(self, ctx):
         player = music.get_player(guild_id=ctx.guild.id)
         await player.stop()
-        await ctx.reply("<:pausebutton:829251301929517116> Stopped playing music!")
+        await ctx.reply("<:green_pause_button:851338985216147487> Stopped playing music!")
 
     @commands.command(aliases = ['l'])
     async def loop(self, ctx):
