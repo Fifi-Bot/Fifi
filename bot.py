@@ -417,7 +417,7 @@ extensions = [
 ]
 
 if __name__ in "__main__":
-    server.start()
+    #server.start()
     
     for ext in extensions:
         client.load_extension(ext)
