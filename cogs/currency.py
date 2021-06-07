@@ -22,7 +22,6 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-#from replit import db #replace repl with replit. Sorry! its fine :)
 import discord
 from discord.ext import commands
 import asyncio
