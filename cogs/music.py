@@ -115,7 +115,7 @@ class Music(commands.Cog):
     async def stop(self, ctx):
         player = music.get_player(guild_id=ctx.guild.id)
         await player.stop()
-        await ctx.reply("<:green_pause_button:851338985216147487> Stopped playing music!")
+        await ctx.reply("<:green_stop_button:851352256615546890> Stopped playing music!")
 
     @commands.command(aliases = ['l'])
     async def loop(self, ctx):
