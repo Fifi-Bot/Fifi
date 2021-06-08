@@ -246,6 +246,8 @@ async def on_member_remove(member):
 async def on_command_error(ctx, error):
   if isinstance(error, commands.CommandOnCooldown):
     await ctx.send(f'This command is on cooldown, you can use it in {round(error.retry_after, 2)} seconds')
+  if isinstance(error, discord.NotFound):
+   await ctx.send("User not found!")
   else:
     await ctx.reply("Uh oh. An error occured. If this happens multiple times please contact whyfai for assistance.")
     raise error
@@ -392,7 +394,29 @@ async def hotel(ctx):
             ctx.reply("Cancelling...")
     else:
         ctx.reply("Cancelling...")
-
+      
+@client.group()
+async def profile(ctx,user : discord.Member = ctx.author):
+ if ctx.invoked_subcommand == None:
+  with open("database.json","r") as f:
+   db = json.load(f)
+  embed = discord.Embed(title=user.name)
+  embed.set_thumbnail(url=user.avatar_url)
+  try:
+   embed.add_field(name="Status", value=db["status"][str(user.id)])
+  except KeyError:
+   embed.add_field(name="Status", value="No status set")
+  return await ctx.reply(embed=embed)
+ 
+@profile.command()
+async def status(ctx,status=None):
+ if status == None:
+  return await ctx.reply("Please specify your new status!")
+ else:
+  with open("database.json","r") as f:
+   db = json.load(f)
+  db["status"][str(ctx.author.id)] = status
+  return await ctx.reply(f"Successfully set `{status}` as your status!")
 
 @client.command()
 async def dm_test(ctx):
