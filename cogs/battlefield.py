@@ -50,15 +50,6 @@ class Battlefield(commands.Cog):
     with open("battle_db.json", "w") as f:
       json.dump(db, f, indent=4)
 
-  @commands.command()
-  async def profile(self,ctx):
-    with open("battle_db.json", "r") as f:
-      db = json.load(f)
-    embed = discord.Embed(title=f"{ctx.author}'s Battlefield Stats",description="Here is your stats in the battlefield",color=discord.Colour.green())
-    embed.add_field(name="❤ Max Health",value=db["max_health"][str(ctx.author.id)])
-    embed.add_field(name="💕 Current Health",value=db["current_health"][str(ctx.author.id)])
-    return await ctx.reply(embed=embed)
-
   gun_info = {
     "AK-47": {
       "price": 2900,
@@ -126,6 +117,15 @@ class Battlefield(commands.Cog):
     with open("battle_db.json","w") as x:
       json.dump(battle_db, x, indent=4)
     return await ctx.reply("You have left the battlefield")
+  
+  @battlefield.command()
+  async def profile(self,ctx):
+    with open("battle_db.json", "r") as f:
+      db = json.load(f)
+    embed = discord.Embed(title=f"{ctx.author}'s Battlefield Stats",description="Here is your stats in the battlefield",color=discord.Colour.green())
+    embed.add_field(name="❤ Max Health",value=db["max_health"][str(ctx.author.id)])
+    embed.add_field(name="💕 Current Health",value=db["current_health"][str(ctx.author.id)])
+    return await ctx.reply(embed=embed)
 
   @commands.command()
   async def shoot(self,ctx,target : discord.Member):
