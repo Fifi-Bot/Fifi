@@ -85,8 +85,10 @@ async def on_message(message):
     if message.author.bot:
         return
       
-    for word in badwords:
-        if word in msg:
+    if message.guild.id == 720991608425807932:
+     if message.channel.id != 851718596187127818:
+      for word in badwords:
+         if word in msg:
             await message.channel.send("Hello FiFi here, so this dude sweared so he got muted by my friend Carl Bot. Don't be like this dude.")
             
             if db["swear_count"][str(message.author.id)] == 2:
