@@ -405,7 +405,7 @@ async def profile(ctx,user : discord.Member = ctx.author):
   try:
    embed.add_field(name="Status", value=db["status"][str(user.id)])
   except KeyError:
-   embed.add_field(name="Status", value="No status set")
+   embed.add_field(name="Status", value="normal guy who doesnt have a status")
   return await ctx.reply(embed=embed)
  
 @profile.command()
