@@ -221,17 +221,19 @@ class Currency(commands.Cog):
 
   @commands.Cog.listener()
   async def on_message(self, message):
-    if message.guild.id == 720991608425807932:
-      if self.pauseCurrency:
+    if message.guild.id == 720991608425807932: #to check if it was sent in meme studios
+      if self.pauseCurrency: #if currency is paused
         return
       #self.removeBotFromDatabase()
-      if message.author.bot:
+      if message.author.bot: #to block bots
         return
-      if message.channel.id == 802011668233715723:
+      if message.channel.id == 802011668233715723: #spam channel
         return
-      if message.author.id in self.currencyCooldown:
+      if message.channel.id == 851718596187127818: #rage room channel
         return
-      if message.channel.id == 771639893411495957:
+      if message.author.id in self.currencyCooldown:#people on cooldown to avoid spam
+        return
+      if message.channel.id == 771639893411495957: #counting channel
         await self.addBalanceToUserCounting(str(message.author.id))
       else:  
         await self.addBalanceToUser(str(message.author.id))
